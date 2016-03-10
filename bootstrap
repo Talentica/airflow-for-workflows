@@ -1,0 +1,38 @@
+#! /bin/bash
+
+# Bootstrap a virtualenv build
+
+export PYVER=2.7
+export VENV=pyenv
+export VENVARGS=--system-site-packages
+
+# Test that Python is installed
+if [ -x /usr/bin/python$PYVER ] ; then
+    echo Using Python$PYVER
+else
+    echo Please install Python $PYVER package
+    exit 1
+fi
+
+# Build a virtualenv for this project
+if [ -d $VENV ] ; then
+    echo The virtualenv '$VENV' is built already
+else
+    wget https://raw.github.com/pypa/virtualenv/master/virtualenv.py
+    /usr/bin/python$PYVER virtualenv.py $VENVARGS $VENV
+    rm -f virtualenv.py*
+fi
+
+. $VENV/bin/activate
+pip install -r pkg_requirements.txt
+
+# initialize the airflow database
+airflow initdb
+
+
+# start the web server, default port is 8080
+airflow webserver -p 8083
+
+# Tell the user to activate the virtualenv in their shell.
+echo You should activate the virtualenv Python now. Run:
+echo . $VENV/bin/activate
