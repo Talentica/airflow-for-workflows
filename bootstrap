@@ -36,3 +36,5 @@ airflow webserver -p 8083
 # Tell the user to activate the virtualenv in their shell.
 echo You should activate the virtualenv Python now. Run:
 echo . $VENV/bin/activate
+
+# Referece: http://tunmer.me/how-tos/bootstrap_python_builds.html
