@@ -29,10 +29,6 @@ pip install -r pkg_requirements.txt
 # initialize the airflow database
 airflow initdb
 
-
-# start the web server, default port is 8080
-airflow webserver -p 8083
-
 # Tell the user to activate the virtualenv in their shell.
 echo You should activate the virtualenv Python now. Run:
 echo . $VENV/bin/activate
