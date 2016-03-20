@@ -15,7 +15,7 @@ default_args = {
     'retry_delay': timedelta(minutes=2),
 }
 
-dag = DAG('airflow_unix_cron', default_args=default_args, schedule_interval="0 * * * *")
+dag = DAG('airflow_retry_feature', default_args=default_args, schedule_interval="0 * * * *")
 
 # For the sake of experimenting with retries you can provide any wrong command
 # below. Once the command fails executing it is ready for re-execution after 2
