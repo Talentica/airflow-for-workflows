@@ -6,3 +6,6 @@ def test():
 def runserver():
     local("airflow webserver -p 8083")
 
+# initialize the airflow database
+def initdb():
+    local("airflow initdb")

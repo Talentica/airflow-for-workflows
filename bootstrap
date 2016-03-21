@@ -26,9 +26,6 @@ fi
 . $VENV/bin/activate
 pip install -r pkg_requirements.txt
 
-# initialize the airflow database
-airflow initdb
-
 # Tell the user to activate the virtualenv in their shell.
 echo You should activate the virtualenv Python now. Run:
 echo . $VENV/bin/activate
